@@ -1,0 +1,42 @@
+﻿using ChainOfCommandExample.Data;
+using HarpyEagle.Chain;
+
+/***************************************************************************************
+ *  Author: Curt C.
+ *  Email : harpyeaglecp@aol.com
+ *  
+ *  This software is released under the Code Project Open License (CPOL)
+ *  See official license description at: http://www.codeproject.com/info/cpol10.aspx
+ *  
+ * This software is provided AS-IS without any warranty of any kind.
+ *  
+ *  Modification History:
+ *  08/10/2009  curtc    Creation of class for www.codeproject.com example.
+ ***************************************************************************************/
+
+namespace ChainOfCommandExample.LoginValidationHandlers
+{
+    /// <summary>
+    /// Chain handler that checks to make sure that the password is correct for a given login identifier.
+    /// </summary>
+    public class LoginPasswordValidationHandler  : IChainHandler<LoginData>
+    {
+        /// <summary>
+        /// Validate password is correct for given login identifier in the requestData.
+        /// </summary>
+        /// <param name="requestData">The login data to be processed by a chain handler.</param>
+        /// <returns>
+        /// HandlerResult.CHAIN_DATA_HANDLED if an exception is not thrown.
+        /// </returns>
+        /// <exception cref="ChainHandler.ChainHandlerException">
+        /// Thrown if the password is not valid for a given login id.
+        /// </exception>
+        public HandlerResult ProcessRequest(LoginData requestData)
+        {
+            if (DataStore.IsPasswordValid(requestData.LoginId, requestData.Password) == false)
+                throw new ChainHandlerException("(LoginPasswordValidationHandler) Invalid login identifier / password combination.");
+            return HandlerResult.CHAIN_DATA_HANDLED;
+        }
+
+    }
+}
