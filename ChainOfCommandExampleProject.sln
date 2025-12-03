@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
-	ProjectSection(SolutionItems) = preProject
-		Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip = Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommand", "Legacy\ChainOfCommand\ChainOfCommand.csproj", "{956757DB-0FDC-4683-9E68-291E8F423150}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleChainHandlers", "Legacy\ExampleChainHandlers\ExampleChainHandlers.csproj", "{85B2EFCD-CED6-4B76-A78B-BD930CD6A74D}"
@@ -24,6 +19,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{C7BDEE01-D
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51B92F8D-175D-4D61-951D-1FA6694B289E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainHandlerExamples", "Modern\ChainHandlerExamples\ChainHandlerExamples.csproj", "{4CEF3FD3-FEB5-B8A8-0169-2536F1CD3862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommandCore", "Modern\ChainOfCommand\ChainOfCommandCore.csproj", "{0E524459-D7AA-F954-1CD6-D5F98939156D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CofCExampleUsageWinForms", "Modern\CofCExampleUsageWinForms\CofCExampleUsageWinForms.csproj", "{350FDEC2-AF16-846B-F83F-C5D62A4F307D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +44,18 @@ Global
 		{9B06C7CE-E5FC-4D97-83B3-396449C08AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B06C7CE-E5FC-4D97-83B3-396449C08AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B06C7CE-E5FC-4D97-83B3-396449C08AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CEF3FD3-FEB5-B8A8-0169-2536F1CD3862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CEF3FD3-FEB5-B8A8-0169-2536F1CD3862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CEF3FD3-FEB5-B8A8-0169-2536F1CD3862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CEF3FD3-FEB5-B8A8-0169-2536F1CD3862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E524459-D7AA-F954-1CD6-D5F98939156D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E524459-D7AA-F954-1CD6-D5F98939156D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E524459-D7AA-F954-1CD6-D5F98939156D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E524459-D7AA-F954-1CD6-D5F98939156D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350FDEC2-AF16-846B-F83F-C5D62A4F307D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350FDEC2-AF16-846B-F83F-C5D62A4F307D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350FDEC2-AF16-846B-F83F-C5D62A4F307D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350FDEC2-AF16-846B-F83F-C5D62A4F307D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +64,9 @@ Global
 		{956757DB-0FDC-4683-9E68-291E8F423150} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{85B2EFCD-CED6-4B76-A78B-BD930CD6A74D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{9B06C7CE-E5FC-4D97-83B3-396449C08AC7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{4CEF3FD3-FEB5-B8A8-0169-2536F1CD3862} = {24226E25-945A-4B84-A388-D82C85D36BDE}
+		{0E524459-D7AA-F954-1CD6-D5F98939156D} = {24226E25-945A-4B84-A388-D82C85D36BDE}
+		{350FDEC2-AF16-846B-F83F-C5D62A4F307D} = {24226E25-945A-4B84-A388-D82C85D36BDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E6F176E-F610-4C71-BBEF-C07B4A5127E2}
