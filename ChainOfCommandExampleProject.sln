@@ -14,6 +14,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleChainHandlers", "Leg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommandExample", "Legacy\ChainOfCommandExample\ChainOfCommandExample.csproj", "{9B06C7CE-E5FC-4D97-83B3-396449C08AC7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy", "Legacy", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modern", "Modern", "{24226E25-945A-4B84-A388-D82C85D36BDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{C7BDEE01-D21C-4E1B-908D-59B8CDA205CA}"
+	ProjectSection(SolutionItems) = preProject
+		Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip = Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51B92F8D-175D-4D61-951D-1FA6694B289E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +46,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{956757DB-0FDC-4683-9E68-291E8F423150} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{85B2EFCD-CED6-4B76-A78B-BD930CD6A74D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9B06C7CE-E5FC-4D97-83B3-396449C08AC7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E6F176E-F610-4C71-BBEF-C07B4A5127E2}
