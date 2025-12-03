@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChainHandlerExamples\ChainHandlerExamples.csproj" />
-    <ProjectReference Include="..\ChainOfCommand\ChainOfCommandCore.csproj" />
+    <ProjectReference Include="..\ChainOfCommandCore\ChainOfCommandCore.csproj" />
   </ItemGroup>
 
 </Project>
