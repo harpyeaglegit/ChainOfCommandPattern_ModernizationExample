@@ -1,6 +1,5 @@
 ﻿using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
-using System.Runtime.CompilerServices;
 
 namespace ChainOfCommand.Managers
 {

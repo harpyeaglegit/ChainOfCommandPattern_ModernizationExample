@@ -11,7 +11,7 @@
  *  08/10/2009  curtc    Creation of class for www.codeproject.com example.
  ***************************************************************************************/
 
-namespace AppExampleCofCImpl.DataManagement.ApplicationData
+namespace AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts
 {
     /// <summary>
     /// An oversimplified class for containing the data for one bank account transaction.
