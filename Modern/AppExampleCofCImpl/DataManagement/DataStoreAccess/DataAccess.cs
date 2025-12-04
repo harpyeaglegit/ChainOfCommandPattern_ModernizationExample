@@ -1,5 +1,4 @@
 ﻿using AppExampleCofCImpl.DataManagement.Interfaces;
-using ChainOfCommandExample.Data;
 
 namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
 {
