@@ -12,14 +12,8 @@ namespace ChainOfCommandCore.Interfaces
         /// <summary>
         /// Appends a given handler to the end of the chain.
         /// </summary>
-        /// <param name="handler"></param>
+        /// <param name="handler">A chain handler to append to the handler chain</param>
         void AppendHandler(IChainHandler<TData> handler);
-
-        /// <summary>
-        /// Removes the given handler from the chain.
-        /// </summary>
-        /// <param name="handler">Reference to a specific handler to Remove</param>
-        void RemoveHandler(IChainHandler<TData> handler);
 
         /// <summary>
         /// Invokes the chain of handlers with the given request data.
@@ -27,8 +21,8 @@ namespace ChainOfCommandCore.Interfaces
         /// (Dependent on the chain strategy implemented, this could mean all handlers must succeed, or just one handler must succeed, etc).
         /// </summary>
         /// <param name="requestData">Data for the chain to process</param>
-        /// <returns>Success requestData, Failure if any/all handlers failed when processing requestData</returns>
-        HandlerResult Process(TData requestData);
+        /// <returns>Success if the chain succeeds, or Failure according to specific implementation policy.</returns>
+        Task<HandlerResult> ProcessAsync(TData requestData);
         
     }
 }

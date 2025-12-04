@@ -13,6 +13,6 @@ namespace ChainOfCommandCore.Interfaces
         /// Returns a collection of exceptions from the last Process() operation
         /// </summary>
         /// <returns>IEnumerable</returns>
-        IEnumerable<ChainHandlerException> GetFailedLastProcessExceptions();
+        IEnumerable<ChainHandlerException> LastProcessExceptions { get; }
     }
 }

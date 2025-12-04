@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChainHandlerExamples\ChainHandlerExamples.csproj" />
     <ProjectReference Include="..\ChainOfCommandCore\ChainOfCommandCore.csproj" />
   </ItemGroup>
 

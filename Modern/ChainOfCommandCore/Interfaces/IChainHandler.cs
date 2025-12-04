@@ -15,7 +15,8 @@
 namespace ChainOfCommandCore.Interfaces
 {
     /// <summary>
-    /// Interface for an object to serve as a handler in a chain-of-command design pattern list of handlers.
+    /// Interface for an object serving as a handler in a chain-of-command chain (i.e. a link in the chain).
+    /// Each handler in the chain is completedly independent of other handlers in the chain. (no knowledge of others) 
     /// </summary>
     /// <typeparam name="TData">Type of the individual chain handler's request data.</typeparam>
     public interface IChainHandler<TData>
@@ -26,8 +27,8 @@ namespace ChainOfCommandCore.Interfaces
         /// <param name="requestData">The data to be processed by a chain handler.</param>
         /// <returns>
         /// Returns a HandlerResult to indicate what should happen next in chain processing
-        /// </returns>
-        HandlerResult ProcessRequest(TData requestData);
+        /// </returns>        
+        Task<HandlerResult> ProcessAsync(TData request);
 
     }
 }

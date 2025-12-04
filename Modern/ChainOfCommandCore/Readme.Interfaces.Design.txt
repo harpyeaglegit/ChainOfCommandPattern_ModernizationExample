@@ -3,6 +3,7 @@
 SOLID Principles:
 - Single Responsibility Principle: 
 	Each handler is responsible for a single task, making it easier to maintain and extend.
+	Each handler is not aware of any other handler in the chain, or how the chain is managed/implemented.
 
 - Open/Closed Principle: 
 	New handlers can be added without modifying existing code, allowing the system to grow and adapt to new requirements.

@@ -2,20 +2,18 @@
 {
     /// <summary>
     /// HandlerResult enumeration is a list a possible status values to be 
-    /// returned by the IChainHandler.ProcessRequest() method call.
+    /// returned by the IChainHandler.Process() method call.
     /// </summary>
     public enum HandlerResult
     {
         /// <summary>
-        /// Indicates the handler has completely handled the request
-        /// and no further processing is needed (processing should stop).
+        /// Indicates the handler has successfully handled the request.
         /// </summary>
-        DataHandled,
+        Success,
 
         /// <summary>
-        /// Indicates that the handler is not completely handled,
-        /// and the next handler in the chain should be called.
+        /// Indicates that the handler encountered an error during processing.        
         /// </summary>
-        DataNotHandled
+        Failure
     };
 }

@@ -19,8 +19,13 @@ namespace ChainOfCommandCore.Core
     /// </summary>
     public class ChainHandlerException : Exception
     {
-        public ChainHandlerException(string msg)
-            : base(msg)
+
+        public ChainHandlerException(string msg) : base(msg)
+        {
+        }
+
+        public ChainHandlerException(string msg, Exception innerException)
+            : base(msg, innerException)
         {
         }
     }
