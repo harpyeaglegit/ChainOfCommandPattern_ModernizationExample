@@ -1,4 +1,4 @@
-﻿using AppExampleCofCImpl.DataManagement.ApplicationData;
+﻿using AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts;
 using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 
