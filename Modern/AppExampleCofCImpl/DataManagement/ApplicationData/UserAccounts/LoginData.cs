@@ -1,17 +1,4 @@
-﻿/***************************************************************************************
- *  Author: Curt C.
- *  Email : harpyeaglecp@aol.com
- *  
- *  This software is released under the Code Project Open License (CPOL)
- *  See official license description at: http://www.codeproject.com/info/cpol10.aspx
- *  
- * This software is provided AS-IS without any warranty of any kind.
- *  
- *  Modification History:
- *  08/10/2009  curtc    Creation of class for www.codeproject.com example.
- ***************************************************************************************/
-
-namespace AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts
+﻿namespace AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts
 {
     /// <summary>
     /// Class that contains data fields for a login attempt (mainly login id and password)

@@ -1,17 +1,5 @@
 ﻿using ChainOfCommandCore.Core;
 
-/***************************************************************************************
- *  Author: Curt C.
- *  Email : harpyeaglecp@aol.com
- *  
- *  This software is released under the Code Project Open License (CPOL)
- *  See official license description at: http://www.codeproject.com/info/cpol10.aspx
- *  
- * This software is provided AS-IS without any warranty of any kind.
- * 
- ***************************************************************************************/
-
-
 namespace ChainOfCommandCore.Interfaces
 {
     /// <summary>
