@@ -1,4 +1,5 @@
-﻿using ChainOfCommandCore.Core;
+﻿using AppExampleCofCImpl.DataManagement;
+using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 using ChainOfCommandExample.Data;
 
@@ -27,19 +28,18 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
         /// </summary>
         /// <param name="requestData">The login data to be processed by a chain handler.</param>
         /// <returns>
-        /// HandlerResult.CHAIN_DATA_HANDLED if an exception is not thrown.
+        /// HandlerResult.Success if password is valid for the user, otherwise throw ChainHandlerException
         /// </returns>
-        /// <exception cref="ChainHandler.ChainHandlerException">
+        /// <exception cref="ChainHandlerException">
         /// Thrown if the password is not valid for a given login id.
         /// </exception>
         public async Task<HandlerResult> ProcessAsync(LoginData requestData)
         {
-
-            // Simulate async work (DB lookup, ledger write, service call, etc)
-            await Task.Delay(10);  // For demo only. Replace with real async I/O.
-
-            if (DataStore.IsPasswordValid(requestData.LoginId, requestData.Password) == false)
+            bool isValidPassword = await DataAccess.Instance.ValidatePasswordAsync(requestData.LoginId, requestData.Password);
+            if (isValidPassword == false)
+            {
                 throw new ChainHandlerException("(LoginPasswordValidationHandler) Invalid login identifier / password combination.");
+            }
             return HandlerResult.Success;
         }
 

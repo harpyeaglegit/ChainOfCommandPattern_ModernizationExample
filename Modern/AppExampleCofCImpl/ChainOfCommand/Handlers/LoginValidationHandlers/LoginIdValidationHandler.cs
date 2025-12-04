@@ -1,4 +1,5 @@
-﻿using ChainOfCommandCore.Core;
+﻿using AppExampleCofCImpl.DataManagement;
+using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 using ChainOfCommandExample.Data;
 
@@ -23,26 +24,26 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
     public class LoginIdValidationHandler : IChainHandler<LoginData>
     {
         /// <summary>
-        /// Make sure the customer number in the contained CustomerData object (passsed as requestData),
-        /// contains a valid customer number.
+        /// Make sure the customer number in the contained the requestData parameter,
+        /// Return true if success, otherwise throw ChainHandlerException.
         /// </summary>
-        /// <param name="requestData">The handler data (CustomerData object).</param>
+        /// <param name="requestData">The handler data containing the login identifier to validate.</param>
         /// <returns>
-        /// HandlerResult.CHAIN_DATA_HANDLED if an exception is not thrown.
+        /// HandlerResult.Success if login id is valid, throws ChainHandlerException if login id is NOT valid.
         /// </returns>
-        /// <exception cref="ChainHandler.ChainHandlerException">
+        /// <exception cref="ChainHandlerException">
         /// Thrown if the login id is NOT found in the data store.
         /// </exception>
         public async Task<HandlerResult> ProcessAsync(LoginData requestData)
         {
-            // Simulate async work (DB lookup, ledger write, service call, etc)
-            await Task.Delay(10);  // For demo only. Replace with real async I/O.
+            // Access data store to validate login identifier.
+            bool isValidLoginId = await DataAccess.Instance.ValidateLoginAsync(requestData.LoginId);
 
-            if (DataStore.IsLoginIdValid(requestData.LoginId) == false)
-                throw new ChainHandlerException("(LoginIdValidationHandler) Invalid login identifier:" + requestData.LoginId);
-            
-            // else login id is valid
-
+            if (isValidLoginId == false)
+            {
+                throw new ChainHandlerException($"(LoginIdValidationHandler) Invalid login identifier: '{requestData.LoginId}'");
+            }
+                        
             return HandlerResult.Success;
         }
     }

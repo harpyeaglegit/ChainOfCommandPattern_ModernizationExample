@@ -1,4 +1,5 @@
-﻿using ChainOfCommandCore.Core;
+﻿using AppExampleCofCImpl.DataManagement;
+using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 using ChainOfCommandExample.Data;
 
@@ -24,23 +25,22 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
     public class TransactionAccountNumberValidationHandler : IChainHandler<AccountTransactionData>
     {
         /// <summary>
-        /// Method to process the supplied requestData.
+        /// Handler method to determine of an account number contained in the data parameter is a valid number.
         /// </summary>
-        /// <param name="rqstData">AccountTransactionData object</param>
+        /// <param name="rqstData">AccountTransactionData object to examine</param>
         /// <returns>
-        /// HandlerResult.Success if this handler determies the account number is valid.
+        /// HandlerResult.Success if this handler determies the account number is valid, throws ChainHandlerException if invalid.
         /// </returns>
-        /// <exception cref="ChainHandler.ChainHandlerException">
+        /// <exception cref="ChainHandlerException">
         /// Thrown if the account number is invalid (not found in the data store).
         /// </exception>
         public async Task<HandlerResult> ProcessAsync(AccountTransactionData rqstData)
         {
-            // Simulate async work (DB lookup, ledger write, service call, etc)
-            await Task.Delay(10);  // For demo only. Replace with real async I/O.
-
-            if (DataStore.IsAccountNumberValid(rqstData.AccountNumber) == false)
-                throw new ChainHandlerException("(TransactionAccountNumberValidationHandler) Invalid transaction account number:"+ rqstData.AccountNumber);
-
+            bool isValidAccount = await DataAccess.Instance.ValidateAccountAsync(rqstData.AccountNumber);
+            if (isValidAccount == false)
+            {
+                throw new ChainHandlerException($"(TransactionAccountNumberValidationHandler) Invalid account number: '{rqstData.AccountNumber}'");
+            }
             return HandlerResult.Success;
         }
     }
