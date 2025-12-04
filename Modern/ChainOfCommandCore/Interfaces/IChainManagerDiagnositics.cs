@@ -3,15 +3,16 @@
 namespace ChainOfCommandCore.Interfaces
 {
     /// <summary>
-    /// Defines a method to return diagnostics information from a Chain Manager when
-    /// one or more chain handlers have failed during processing.
+    /// Defines a method to return diagnostics information from an IChainManager when
+    /// one or more chain handlers have failed during processing.<br/>
+    /// Note: This defines optional behavior for an IChainManager implementation.    
     /// </summary>
     public interface IChainManagerDiagnostics
     {
         /// <summary>
         /// Returns a collection of exceptions from the last Process() operation
         /// </summary>
-        /// <returns></returns>
+        /// <returns>IEnumerable</returns>
         IEnumerable<ChainHandlerException> GetFailedLastProcessExceptions();
     }
 }
