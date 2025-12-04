@@ -1,7 +1,6 @@
 ﻿using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 using ChainOfCommandExample.Data;
-using HarpyEagle.Chain;
 
 /***************************************************************************************
  *  Author: Curt C.
@@ -34,8 +33,11 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the account number is invalid (not found in the data store).
         /// </exception>
-        public Task<HandlerResult> ProcessAsync(AccountTransactionData rqstData)
+        public async Task<HandlerResult> ProcessAsync(AccountTransactionData rqstData)
         {
+            // Simulate async work (DB lookup, ledger write, service call, etc)
+            await Task.Delay(10);  // For demo only. Replace with real async I/O.
+
             if (DataStore.IsAccountNumberValid(rqstData.AccountNumber) == false)
                 throw new ChainHandlerException("(TransactionAccountNumberValidationHandler) Invalid transaction account number:"+ rqstData.AccountNumber);
 

@@ -33,8 +33,12 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the transaction type is invalid - (not a 'D' or a 'W' character)
         /// </exception>
-        public HandlerResult ProcessRequest(AccountTransactionData requestData)
+        public async Task<HandlerResult> ProcessAsync(AccountTransactionData requestData)
         {
+
+            // Simulate async work (DB lookup, ledger write, service call, etc)
+            await Task.Delay(10);  // For demo only. Replace with real async I/O.
+
             if (requestData.TransactionType != 'D' &&
                 requestData.TransactionType != 'W')
                 throw new ChainHandlerException("(TransactionTypeValidationHandler) Invalid transaction type '"+requestData.TransactionType+"' - must be either a 'W' of 'D'");

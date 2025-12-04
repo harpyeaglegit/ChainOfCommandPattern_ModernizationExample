@@ -33,8 +33,11 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the login id is NOT found in the data store.
         /// </exception>
-        public HandlerResult ProcessRequest(LoginData requestData)
+        public async Task<HandlerResult> ProcessAsync(LoginData requestData)
         {
+            // Simulate async work (DB lookup, ledger write, service call, etc)
+            await Task.Delay(10);  // For demo only. Replace with real async I/O.
+
             if (DataStore.IsLoginIdValid(requestData.LoginId) == false)
                 throw new ChainHandlerException("(LoginIdValidationHandler) Invalid login identifier:" + requestData.LoginId);
             

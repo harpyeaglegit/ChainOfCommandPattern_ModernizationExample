@@ -23,6 +23,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
     /// </summary>
     public class TransactionAmountValidationHandler : IChainHandler<AccountTransactionData>
     {
+
         /// <summary>
         /// Checks to see if transaction has a positive amount,
         /// throws validation exception of less than or equal to zero.
@@ -34,8 +35,12 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the amount for the transaction data is less than or equal to zero.
         /// </exception>
-        public HandlerResult ProcessRequest(AccountTransactionData requestData)
-        {          
+        public async Task<HandlerResult> ProcessAsync(AccountTransactionData requestData)
+        {
+
+            // Simulate async work (DB lookup, ledger write, service call, etc)
+            await Task.Delay(10);  // For demo only. Replace with real async I/O.
+
             if (requestData.Amount <= 0.0) // invalid amount- only accept positive dollar amounts
                 throw new ChainHandlerException("(TransactionAmountValidationHandler) Amount:(" + requestData.Amount + ") is less than or equal to zero.");
 

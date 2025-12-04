@@ -32,8 +32,12 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the password is not valid for a given login id.
         /// </exception>
-        public HandlerResult ProcessRequest(LoginData requestData)
+        public async Task<HandlerResult> ProcessAsync(LoginData requestData)
         {
+
+            // Simulate async work (DB lookup, ledger write, service call, etc)
+            await Task.Delay(10);  // For demo only. Replace with real async I/O.
+
             if (DataStore.IsPasswordValid(requestData.LoginId, requestData.Password) == false)
                 throw new ChainHandlerException("(LoginPasswordValidationHandler) Invalid login identifier / password combination.");
             return HandlerResult.Success;
