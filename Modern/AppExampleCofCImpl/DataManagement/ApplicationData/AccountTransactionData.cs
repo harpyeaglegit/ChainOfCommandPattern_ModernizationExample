@@ -1,5 +1,4 @@
-﻿
-/***************************************************************************************
+﻿/***************************************************************************************
  *  Author: Curt C.
  *  Email : harpyeaglecp@aol.com
  *  
@@ -12,7 +11,7 @@
  *  08/10/2009  curtc    Creation of class for www.codeproject.com example.
  ***************************************************************************************/
 
-namespace ChainOfCommandExample.Data
+namespace AppExampleCofCImpl.DataManagement.ApplicationData
 {
     /// <summary>
     /// An oversimplified class for containing the data for one bank account transaction.

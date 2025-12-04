@@ -1,6 +1,7 @@
-﻿using ChainOfCommandExample.Data;
+﻿using AppExampleCofCImpl.DataManagement.Interfaces;
+using ChainOfCommandExample.Data;
 
-namespace AppExampleCofCImpl.DataManagement
+namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
 {
     public sealed class DataAccess
     {

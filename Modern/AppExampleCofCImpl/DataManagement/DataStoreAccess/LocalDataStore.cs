@@ -1,4 +1,4 @@
-﻿using AppExampleCofCImpl.DataManagement;
+﻿using AppExampleCofCImpl.DataManagement.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +15,7 @@ using System.Collections.Generic;
  *  08/10/2009  curtc    Creation of class for www.codeproject.com example.
  ***************************************************************************************/
 
-namespace ChainOfCommandExample.Data
+namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
 {
     /// <summary>
     /// Simple data store for login information and account data.

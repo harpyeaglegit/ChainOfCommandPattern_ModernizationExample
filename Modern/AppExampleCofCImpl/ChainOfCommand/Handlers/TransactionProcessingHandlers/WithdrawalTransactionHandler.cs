@@ -1,6 +1,6 @@
-﻿using ChainOfCommandCore.Core;
+﻿using AppExampleCofCImpl.DataManagement.ApplicationData;
+using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
-using ChainOfCommandExample.Data;
 
 /***************************************************************************************
  *  Author: Curt C.

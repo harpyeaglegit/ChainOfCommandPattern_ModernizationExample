@@ -1,4 +1,4 @@
-﻿namespace AppExampleCofCImpl.DataManagement
+﻿namespace AppExampleCofCImpl.DataManagement.Interfaces
 {
     public interface IDataStore
     {

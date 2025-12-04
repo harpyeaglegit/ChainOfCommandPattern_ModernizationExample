@@ -1,7 +1,7 @@
-﻿using AppExampleCofCImpl.DataManagement;
+﻿using AppExampleCofCImpl.DataManagement.ApplicationData;
+using AppExampleCofCImpl.DataManagement.DataStoreAccess;
 using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
-using ChainOfCommandExample.Data;
 
 /***************************************************************************************
  *  Author: Curt C.
