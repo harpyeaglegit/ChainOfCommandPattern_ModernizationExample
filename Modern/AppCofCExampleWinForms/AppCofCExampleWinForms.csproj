@@ -9,8 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AppExampleCofCImpl\AppExampleCofCImpl.csproj" />
     <ProjectReference Include="..\ChainOfCommandCore\ChainOfCommandCore.csproj" />
     <ProjectReference Include="..\ChainOfCommandManagerImpl\ChainOfCommandManagerImpl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

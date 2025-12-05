@@ -9,7 +9,7 @@ namespace ChainOfCommand.Managers
     /// 
     /// Stategy for this implementation:
     ///  - Process each handler in sequence (passing data down the chain)
-    ///  - Stop on the first handler that throws a ChainHandlerException, or that returns a result of Failure.
+    ///  - Stop on the first handler that either throws a ChainHandlerException, or that returns a result of Failure.
     /// The return result indicates whether the chain stragtegy produced a success of failed result.
     /// 
     /// Diagnostic details are available via IChainManagerDiagnostics.
