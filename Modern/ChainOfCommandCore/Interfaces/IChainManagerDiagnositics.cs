@@ -12,7 +12,7 @@ namespace ChainOfCommandCore.Interfaces
         /// <summary>
         /// Returns a collection of exceptions from the last Process() operation
         /// </summary>
-        /// <returns>IEnumerable</returns>
+        /// <returns>IEnumerable collection of exceptions encountered in chain</returns>
         IEnumerable<ChainHandlerException> LastProcessExceptions { get; }
     }
 }

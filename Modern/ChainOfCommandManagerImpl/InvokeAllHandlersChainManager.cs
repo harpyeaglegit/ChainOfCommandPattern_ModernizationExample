@@ -1,21 +1,22 @@
 ﻿using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
-using ChainOfCommandManagerImpl;
 
-namespace ChainOfCommand.Managers
+namespace ChainOfCommandManagerImpl
 {
     /// <summary>
+    /// InvokeAllHandlersChainManager:
     /// Chain Manager implementation with the following Execution strategy:
     /// 
     /// Stategy for this implementation:
-    ///  - Process each handler in sequence (passing data down the chain)
-    ///  - Stop on the first handler that throws a ChainHandlerException, or that returns a result of Failure.
-    /// The return result indicates whether the chain stragtegy produced a success of failed result.
+    ///  - Process all handler in sequence (passing data down the chain)
+    ///  - Exceptions are collected for later analysis
+    ///  - If one handler returns Failure, then the overall result is considered Failure.
     /// 
     /// Diagnostic details are available via IChainManagerDiagnostics.
     /// </summary>
-    public class StopOnFirstErrorChainManager<T> : AbstractChainManager<T>
+    public class InvokeAllHandlersChainManager<T> : AbstractChainManager<T>
     {
+
         /// <summary>
         /// Invokes the chain of handlers with the given request data.
         /// (Dependent on the chain strategy implemented, this could mean all handlers must succeed, or just one handler must succeed, etc).
@@ -24,7 +25,7 @@ namespace ChainOfCommand.Managers
         /// <returns>Success requestData, Failure if any/all handlers failed when processing requestData</returns>
         public override async Task<HandlerResult> ProcessAsync(T requestData)
         {
-            HandlerResult result = HandlerResult.Success;
+            HandlerResult result = HandlerResult.Success; // Assume success unless a handler indicates failure
 
             _processingExceptions.Clear();
 
@@ -33,7 +34,11 @@ namespace ChainOfCommand.Managers
             {
                 try
                 {
-                    result = await handler.ProcessAsync(requestData);
+                    if(await handler.ProcessAsync(requestData) == HandlerResult.Failure)
+                    {
+                        // at least one handler failed, so the overall result is failure
+                        result = HandlerResult.Failure;
+                    }
                 }
                 catch (ChainHandlerException ex)
                 {
@@ -44,15 +49,9 @@ namespace ChainOfCommand.Managers
                 {
                     // Wrap any non-ChainHandlerException exceptions in a ChainHandlerException
                     ChainHandlerException chainEx = new ChainHandlerException(
-                        $"Handler of type {handler.GetType().Name} threw an unexpected exception.", ex);
+                        $"Handler of type {handler.GetType().Name} threw an unexpected exception, Message: {ex.Message}", ex);
                     _processingExceptions.Add(chainEx);
                     result = HandlerResult.Failure;
-                }
-
-                if (result == HandlerResult.Failure)
-                {
-                    // Stop processing on first handler failure.
-                    break;
                 }
             }
 
@@ -61,3 +60,4 @@ namespace ChainOfCommand.Managers
 
     }
 }
+

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChainOfCommandCore\ChainOfCommandCore.csproj" />
+    <ProjectReference Include="..\ChainOfCommandManagerImpl\ChainOfCommandManagerImpl.csproj" />
   </ItemGroup>
 
 </Project>
