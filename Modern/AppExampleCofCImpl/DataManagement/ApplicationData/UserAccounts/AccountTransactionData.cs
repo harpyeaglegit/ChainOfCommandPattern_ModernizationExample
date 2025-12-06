@@ -6,38 +6,33 @@ namespace AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts
     /// </summary>
     public class AccountTransactionData
     {
-
-        #region Private_Field_Data
-        // Account number for which the transaction is applied:
-        private int accountNumber;
-
-        // Amount of the transaction
-        private double amount;
-
-        // Transaction Type: 'W' for withdrawal, 'D' for deposit
-        char transactionType;
-        #endregion
-
-
         #region Properties
 
         /// <summary>
-        /// Gets the transaction account number.
+        /// Gets or sets the account owner identifier for this transaction
         /// </summary>
-        /// <value>The account number.</value>
-        public int AccountNumber { get { return accountNumber; } }
+        /// <value>
+        /// The owner identifier.
+        /// </value>
+        public int OwnerId { get; set; }    
 
         /// <summary>
-        /// Gets the transaction amount.
+        /// Gets the transaction account number for this transaction.
+        /// </summary>
+        /// <value>The account number.</value>
+        public int AccountNumber { get; private set; }
+
+        /// <summary>
+        /// Gets the transaction amount for this transaction
         /// </summary>
         /// <value>The amount.</value>
-        public double Amount { get { return amount; } }
+        public double Amount { get; private set; }
 
         /// <summary>
         /// Gets the type of the transaction ('W' for withdrawal, 'D' for deposit).
         /// </summary>
         /// <value>The type of the transaction.</value>
-        public char TransactionType { get { return transactionType; } }
+        public char TransactionType { get; private set; }
 
         #endregion
 
@@ -50,9 +45,9 @@ namespace AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts
         /// <param name="transactionType">Type of the transaction.</param>
         public AccountTransactionData(int accountNumber, double amount, char transactionType)
         {
-            this.accountNumber = accountNumber;
-            this.amount = amount;
-            this.transactionType = transactionType;
+            AccountNumber = accountNumber;
+            Amount = amount;
+            TransactionType = transactionType;
         }
     }
 }

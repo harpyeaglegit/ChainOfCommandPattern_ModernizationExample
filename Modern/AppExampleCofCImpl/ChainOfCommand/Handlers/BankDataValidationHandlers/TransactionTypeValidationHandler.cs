@@ -28,7 +28,9 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
 
             if (requestData.TransactionType != 'D' &&
                 requestData.TransactionType != 'W')
-                throw new ChainHandlerException("(TransactionTypeValidationHandler) Invalid transaction type '"+requestData.TransactionType+"' - must be either a 'W' of 'D'");
+            {
+                throw new ChainHandlerException($"({GetType().Name}) Invalid transaction type '" + requestData.TransactionType + "' - must be either a 'W' of 'D'");
+            }
 
             return HandlerResult.Success;
         }

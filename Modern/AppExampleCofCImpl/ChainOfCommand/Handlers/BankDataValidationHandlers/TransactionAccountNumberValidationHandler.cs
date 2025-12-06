@@ -7,7 +7,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
 {
     /// <summary>
     /// Chain handler that checks to see if the supplied account number is a
-    /// valid account number in the data store.
+    /// valid institutional account number in the data store.
     /// </summary>
     public class TransactionAccountNumberValidationHandler : IChainHandler<AccountTransactionData>
     {

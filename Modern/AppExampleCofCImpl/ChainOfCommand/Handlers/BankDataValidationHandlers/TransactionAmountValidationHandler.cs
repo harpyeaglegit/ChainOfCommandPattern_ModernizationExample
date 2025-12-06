@@ -17,7 +17,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
         /// </summary>
         /// <param name="requestData">The handler data (AccountTransactionData object).</param>
         /// <returns>
-        /// HandlerResult.CHAIN_DATA_NOT_HANDLED (since account transaction handlers ALL receive the data)
+        /// HandlerResult.Success if the amount value is valid (greater than zero).
         /// </returns>
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the amount for the transaction data is less than or equal to zero.
@@ -29,7 +29,9 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
             await Task.Delay(10);  // For demo only. Replace with real async I/O.
 
             if (requestData.Amount <= 0.0) // invalid amount- only accept positive dollar amounts
+            {
                 throw new ChainHandlerException("(TransactionAmountValidationHandler) Amount:(" + requestData.Amount + ") is less than or equal to zero.");
+            }
 
             return HandlerResult.Success;
         }
