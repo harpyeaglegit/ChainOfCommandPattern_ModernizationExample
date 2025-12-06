@@ -7,6 +7,8 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
 {
     /// <summary>
     /// Chain handler to to verify that a login identifier is valid in the data store.
+    /// Business Rule enforced by this handler:
+    ///      (1) A login identifier must be found in the data store.
     /// </summary>
     public class LoginIdValidationHandler : IChainHandler<LoginData>
     {

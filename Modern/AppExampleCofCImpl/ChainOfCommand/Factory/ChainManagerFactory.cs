@@ -1,5 +1,4 @@
-﻿using AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers;
-using AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers;
+﻿using AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers;
 using AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandlers;
 using AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts;
 using ChainOfCommand.Managers;
@@ -57,7 +56,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
             IChainManager<AccountTransactionData> resultChain;
 
             // Requirement (1) is satisfied by using InvokeAllHandlersChainManager which allows all handlers to process the request data.
-            resultChain = new InvokeAllHandlersChainManager<AccountTransactionData>();
+            resultChain = new StopOnFirstErrorChainManager<AccountTransactionData>();
 
             // Requirement (2) is satisfied by adding TransactionAccountNumberValidationHandler
             resultChain.AppendHandler(new TransactionAccountNumberValidationHandler());
@@ -69,7 +68,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
             resultChain.AppendHandler(new TransactionAmountValidationHandler());
 
             // Requirement (5) is satisfied by adding AccountTransactionHandler
-            resultChain.AppendHandler(new AccountTransactionHandler());
+            resultChain.AppendHandler(new TransactionProcessHandler());
 
             return resultChain;
         }

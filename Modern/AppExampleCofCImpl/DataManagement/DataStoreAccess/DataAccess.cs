@@ -63,5 +63,17 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
             bool result = await _store.ValidateAccountAsync(number);
             return result;
         }
+
+        /// <summary>
+        /// Validates the user account assoc asynchronous.
+        /// </summary>
+        /// <param name="ownerId">The owner identifier.</param>
+        /// <param name="accountNumber">The account number.</param>
+        /// <returns></returns>
+        public async Task<bool> ValidateUserAccountAssocAsync(int ownerId, int accountNumber)
+        {
+            bool result = await _store.ValidateUserAccountAssocAsync(ownerId, accountNumber);
+            return result;
+        }
     }
 }

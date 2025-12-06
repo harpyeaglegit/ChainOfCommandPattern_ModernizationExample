@@ -5,7 +5,6 @@
     /// </summary>
     public interface IDataStore
     {
-
         /// <summary>
         /// Validates the login asynchronous.
         /// </summary>
@@ -27,5 +26,13 @@
         /// <param name="number">The account number as integer.</param>
         /// <returns>true if valid account, false if invalid</returns>
         Task<bool> ValidateAccountAsync(int accountNumber);
+
+        /// <summary>
+        /// Validates the user id is associated with the given account number.
+        /// </summary>
+        /// <param name="ownerId">The owner identifier.</param>
+        /// <param name="accountNumber">The account number.</param>
+        /// <returns>true if a valid user is associated with a valid account</returns>
+        Task<bool> ValidateUserAccountAssocAsync(int ownerId, int accountNumber);
     }
 }

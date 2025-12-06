@@ -2,11 +2,13 @@
 using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 
-namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
+namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandlers
 {
     /// <summary>
-    /// Chain handler that checks to see if a given transaction type
-    /// is valid (Either a 'D' for deposit, or 'W' for withdrawal)
+    /// Chain handler that checks for a valid transaction type.
+    /// Business Rule enforced by this handler:
+    ///      (1) A transaction type must be a single character.
+    ///      (2) Valid transaction types characters are: 'D' (deposit), 'W' (withdrawal)
     /// </summary>
     public class TransactionTypeValidationHandler : IChainHandler<AccountTransactionData>
     {
@@ -15,23 +17,20 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
         /// </summary>
         /// <param name="requestData">The handler data (AccountTransactionData).</param>
         /// <returns>
-        /// HandlerResult.CHAIN_DATA_NOT_HANDLED (since account transaction handlers ALL receive the data)
+        /// HandlerResult.Success
         /// </returns>
         /// <exception cref="ChainHandler.ChainHandlerException">
         /// Thrown if the transaction type is invalid - (not a 'D' or a 'W' character)
         /// </exception>
         public async Task<HandlerResult> ProcessAsync(AccountTransactionData requestData)
         {
-
             // Simulate async work (DB lookup, ledger write, service call, etc)
             await Task.Delay(10);  // For demo only. Replace with real async I/O.
 
-            if (requestData.TransactionType != 'D' &&
-                requestData.TransactionType != 'W')
+            if (requestData.TransactionType != "D" && requestData.TransactionType != "W")
             {
-                throw new ChainHandlerException($"({GetType().Name}) Invalid transaction type '" + requestData.TransactionType + "' - must be either a 'W' of 'D'");
+                throw new ChainHandlerException($"({GetType().Name}) Invalid transaction type '{requestData.TransactionType}' - must be either a 'W' or 'D'");
             }
-
             return HandlerResult.Success;
         }
     }

@@ -3,11 +3,13 @@ using AppExampleCofCImpl.DataManagement.DataStoreAccess;
 using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 
-namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
+namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandlers
 {
     /// <summary>
     /// Chain handler that checks to see if the supplied account number is a
     /// valid institutional account number in the data store.
+    /// Business Rule enforced by this handler:
+    ///      (1) An account number must be found in the data store.
     /// </summary>
     public class TransactionAccountNumberValidationHandler : IChainHandler<AccountTransactionData>
     {
@@ -26,7 +28,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
             bool isValidAccount = await DataAccess.Instance.ValidateAccountAsync(rqstData.AccountNumber);
             if (isValidAccount == false)
             {
-                throw new ChainHandlerException($"(TransactionAccountNumberValidationHandler) Invalid account number: '{rqstData.AccountNumber}'");
+                throw new ChainHandlerException($"({GetType().Name}) Invalid Account Number: '{rqstData.AccountNumber}'");
             }
             return HandlerResult.Success;
         }

@@ -2,7 +2,7 @@
 using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
 
-namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
+namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandlers
 {
     /// <summary>
     /// Chain handler that validates that a given amount is greater than zero
@@ -12,8 +12,9 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
     {
 
         /// <summary>
-        /// Checks to see if transaction has a positive amount,
-        /// throws validation exception of less than or equal to zero.
+        /// Handler to check for valid transaction amount.        
+        /// Business Rule enforced by this handler:
+        ///      (1) A transaction amount must be greater than zero (i.e. a positive number).
         /// </summary>
         /// <param name="requestData">The handler data (AccountTransactionData object).</param>
         /// <returns>
@@ -30,7 +31,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.BankDataValidationHandlers
 
             if (requestData.Amount <= 0.0) // invalid amount- only accept positive dollar amounts
             {
-                throw new ChainHandlerException("(TransactionAmountValidationHandler) Amount:(" + requestData.Amount + ") is less than or equal to zero.");
+                throw new ChainHandlerException($"({GetType().Name}) Invalid Amount:({requestData.Amount}) is less than or equal to zero.");
             }
 
             return HandlerResult.Success;

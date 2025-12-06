@@ -8,6 +8,8 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
 {
     /// <summary>
     /// Chain handler that checks to make sure that the password is correct for a given login identifier.
+    /// Business Rule enforced by this handler:
+    ///      (1) The password must match the login identifier in the data store.
     /// </summary>
     public class LoginPasswordValidationHandler  : IChainHandler<LoginData>
     {
@@ -26,7 +28,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
             bool isValidPassword = await DataAccess.Instance.ValidatePasswordAsync(requestData.LoginId, requestData.Password);
             if (isValidPassword == false)
             {
-                throw new ChainHandlerException("(LoginPasswordValidationHandler) Invalid login identifier / password combination.");
+                throw new ChainHandlerException($"({GetType().Name}) Invalid login identifier / password combination.");
             }
             return HandlerResult.Success;
         }

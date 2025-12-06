@@ -7,7 +7,7 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
     /// </summary>
     public class LocalDataStore : IDataStore
     {
-        // --- Internal simulated (local) data store: ---
+        // --- Internal simulated (local) in-memory data store: ---
         // Note: _loginIds[x] corresponds to _passwords[x], and _accountNumbers[x] (parallel lists).
 
         // List of valid customer numbers
@@ -27,13 +27,13 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
         public LocalDataStore()
         {
             // Load the login id's
-            _loginIds = [1000, 1001, 1002, 1004, 1005, 1006, 1007, 1008];
+            _loginIds = [1000, 1001, 1002];
 
             // Load corresponding passwords
-            _passwords = ["password0", "password1", "password2", "password3", "password4", "password5", "password6", "password7", "password8"];
+            _passwords = ["password0", "password1", "password2"];
 
             // Load valid account numbers:
-            _accountNumbers = [9990, 9991, 9992, 9993, 9994, 9995, 9996, 9997, 9998];
+            _accountNumbers = [9990, 9991, 9992];
         }
 
         /// <summary>
@@ -75,6 +75,28 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
         {
             await Task.Delay(1); // Simulate data access delay for async operation
             bool result = _accountNumbers.Contains(number);
+            return result;
+        }
+
+        /// <summary>
+        /// Validates the user id is associated with the given account number.
+        /// </summary>
+        /// <param name="ownerId">The owner identifier.</param>
+        /// <param name="accountNumber">The account number.</param>
+        /// <returns>true if a valid user is associated with a valid account</returns>
+        public async Task<bool> ValidateUserAccountAssocAsync(int ownerId, int accountNumber)
+        {
+            bool result = false;
+            await Task.Delay(1); // Simulate data access delay for async operation
+
+            int idx = _loginIds.IndexOf(ownerId);
+            if(idx >= 0 && idx < _accountNumbers.Count)
+            {
+                // The user is a valid user.
+                // Now check if the account number matches the user's account number.
+                result = _accountNumbers[idx] == accountNumber;
+            }
+
             return result;
         }
     }
