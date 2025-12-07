@@ -11,6 +11,11 @@ using ChainOfCommandCore.Interfaces;
 
 namespace CofCExampleUsageWinForms
 {
+    /// <summary>
+    /// This a simple WinForms Form to that demonstrations the operation of the Chain Of Command Design Pattern
+    /// This form is not meant to demonstrate real world architecture of a modern UI system, only for demo.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainForm : Form
     {
         // Chain to perform login authorization example
