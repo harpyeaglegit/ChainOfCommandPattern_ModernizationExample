@@ -116,8 +116,8 @@ namespace CofCExampleUsageWinForms
         /// Write any exception messages contained in the supplied IChainManagerDiagnostics parameter, 
         /// otherwise write success message.
         /// </summary>
-        /// <param name="diag">The diag.</param>
-/        private void DisplayResults(IChainManagerDiagnostics diag)
+        /// <param name="diag">The object implementing the IChainManagerDiagnostics interface to be reported.</param>
+        private void DisplayResults(IChainManagerDiagnostics diag)
         {
             if (diag?.LastProcessExceptions?.Count() > 0)
             {
