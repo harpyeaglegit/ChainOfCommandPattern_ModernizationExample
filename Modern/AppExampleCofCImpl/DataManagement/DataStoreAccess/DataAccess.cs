@@ -24,7 +24,7 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
         /// </summary>
         private DataAccess()
         {
-            _store = new LocalDataStore();
+            _store = new InMemoryDataStore();
             // later: _store = new AwsDataStore();
         }
 

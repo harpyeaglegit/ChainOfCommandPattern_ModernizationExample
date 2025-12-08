@@ -4,8 +4,9 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
 {
     /// <summary>
     /// Simple in-memory data store for data access.
+    /// Implements the "IDataStore" interface, in order to implement the 'Respository' design pattern.
     /// </summary>
-    public class LocalDataStore : IDataStore
+    public class InMemoryDataStore : IDataStore
     {
         // --- Internal simulated (local) in-memory data store: ---
         // Note: _loginIds[x] corresponds to _passwords[x], and _accountNumbers[x] (parallel lists).
@@ -21,10 +22,10 @@ namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalDataStore"/> class.
+        /// Initializes a new instance of the <see cref="InMemoryDataStore"/> class.
         /// Creates in memory data store with sample data.
         /// </summary>
-        public LocalDataStore()
+        public InMemoryDataStore()
         {
             // Load the login id's
             _loginIds = [1000, 1001, 1002];
