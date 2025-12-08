@@ -8,8 +8,8 @@ namespace ChainOfCommandManagerImpl
     /// Chain Manager implementation with the following Execution strategy:
     /// 
     /// Stategy for this implementation:
-    ///  - Process all handler in sequence (passing data down the chain)
-    ///  - Exceptions are collected for later analysis
+    ///  - Process all handler in sequence (passing data down the chain), regardless of individual handler success/failure
+    ///  - Exceptions are collected for later analysis - any exception results in failure of the overall chain
     ///  - If one handler returns Failure, then the overall result is considered Failure.
     /// 
     /// Diagnostic details are available via IChainManagerDiagnostics.
@@ -19,7 +19,7 @@ namespace ChainOfCommandManagerImpl
 
         /// <summary>
         /// Invokes the chain of handlers with the given request data.
-        /// (Dependent on the chain strategy implemented, this could mean all handlers must succeed, or just one handler must succeed, etc).
+        /// All handlers are invoked in sequence, thus giving each handler the opportunity to process the request data.
         /// </summary>
         /// <param name="requestData">Data for the chain to process</param>
         /// <returns>Success requestData, Failure if any/all handlers failed when processing requestData</returns>

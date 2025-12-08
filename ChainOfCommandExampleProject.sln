@@ -18,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{C7BDEE01-D
 		Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip = Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51B92F8D-175D-4D61-951D-1FA6694B289E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommandCore", "Modern\ChainOfCommandCore\ChainOfCommandCore.csproj", "{268F3479-D14D-086F-32AF-E089D4BCF885}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommandManagerImpl", "Modern\ChainOfCommandManagerImpl\ChainOfCommandManagerImpl.csproj", "{EF5FF699-F3EF-4549-BE5A-E993394A3D20}"

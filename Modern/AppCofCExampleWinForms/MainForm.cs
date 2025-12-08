@@ -1,10 +1,4 @@
-﻿/***************************************************************************************
- *  Author: Curt C.
-
- * 
- ***************************************************************************************/
-
-using AppExampleCofCImpl.ChainOfCommand.Factory;
+﻿using AppExampleCofCImpl.ChainOfCommand.Factory;
 using AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts;
 using ChainOfCommandCore.Core;
 using ChainOfCommandCore.Interfaces;
@@ -12,8 +6,9 @@ using ChainOfCommandCore.Interfaces;
 namespace CofCExampleUsageWinForms
 {
     /// <summary>
-    /// This a simple WinForms Form to that demonstrations the operation of the Chain Of Command Design Pattern
-    /// This form is not meant to demonstrate real world architecture of a modern UI system, only for demo.
+    /// This a simple WinForms Form to that demonstrats the operation of the Chain Of Command Design Pattern
+    /// This form is not meant to demonstrate real world architecture of a modern UI system, only to demo
+    /// examples using Chain of Command design pattern.
     /// </summary>
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainForm : Form

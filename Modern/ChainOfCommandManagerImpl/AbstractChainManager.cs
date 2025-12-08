@@ -7,10 +7,10 @@ namespace ChainOfCommandManagerImpl
     /// AbstractChainManager<br/>
     /// Abstract chain manager class that implements common functionality for chain managers.<br/>
     /// Functionality included:<br/>
-    /// (1) Appending handlers to the chain<br/>
-    /// (2) Storing exceptions encountered during processing for diagnostics<br/>
+    ///     (1) Appending handlers to the chain<br/>
+    ///     (2) Storing exceptions encountered during processing for diagnostics<br/>
     /// 
-    /// Subclasses can be created to implement different chain processing strategies, not not effect
+    /// Subclasses can be created to implement different chain processing strategies, and not effect
     /// core functionality (SOLID Open/Closed, Single Responsibility, Interface principles).<br/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -51,7 +51,7 @@ namespace ChainOfCommandManagerImpl
             }
         }
 
-        // Abstract method to be implemented by derived classes for processing the chain
+        // Abstract method to be implemented by derived classes for async processing of the chain
         public abstract Task<HandlerResult> ProcessAsync(T requestData);
     }
 }

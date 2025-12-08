@@ -10,6 +10,7 @@ namespace ChainOfCommand.Managers
     /// Stategy for this implementation:
     ///  - Process each handler in sequence (passing data down the chain)
     ///  - Stop on the first handler that either throws a ChainHandlerException, or that returns a result of Failure.
+    ///  - Any handler that throws an exception or returns Failure causes the overall chain result to be Failure.
     /// The return result indicates whether the chain stragtegy produced a success of failed result.
     /// 
     /// Diagnostic details are available via IChainManagerDiagnostics.
@@ -17,11 +18,10 @@ namespace ChainOfCommand.Managers
     public class StopOnFirstErrorChainManager<T> : AbstractChainManager<T>
     {
         /// <summary>
-        /// Invokes the chain of handlers with the given request data.
-        /// (Dependent on the chain strategy implemented, this could mean all handlers must succeed, or just one handler must succeed, etc).
+        /// Invokes all of the chain of handlers with the given request data.        
         /// </summary>
         /// <param name="requestData">Data for the chain to process</param>
-        /// <returns>Success requestData, Failure if any/all handlers failed when processing requestData</returns>
+        /// <returns>Success if no errors, Failure if any/all handlers failed when processing requestData</returns>
         public override async Task<HandlerResult> ProcessAsync(T requestData)
         {
             HandlerResult result = HandlerResult.Success;

@@ -1,7 +1,20 @@
-﻿The ChainOfCommandCore library provides a flexible and extensible framework for implementing the Chain of Command / Chain of Responsibility design pattern in your applications.
+﻿
+******************************************************
+Library: ChainOfCommandCore:
+******************************************************
 
-SOLID Principles:
+The ChainOfCommandCore library provides a flexible and extensible framework for implementing the Chain of Command / 
+Chain of Responsibility design pattern for applications.
+
+This library provides interfaces, type definitions, and execption classes involved in produce chains of handlers to 
+process requests or commands in a decoupled manner.
+
+******************************************************
+SOLID Principles Applied:
+******************************************************
+
 - Single Responsibility Principle: 
+	Introduces functionality of a chain of management 'handler', or link in the chain.
 	Each handler is responsible for a single task, making it easier to maintain and extend.
 	Each handler is not aware of any other handler in the chain, or how the chain is managed/implemented.
 
@@ -24,6 +37,5 @@ SOLID Principles:
 	Example: The IChainManagerDiagnostics provides for diagnostic functionality without burdening the core chain management interfaces.
 
 - Dependency Inversion Principle: 
-	The library promotes the use of abstractions, allowing high-level modules to depend on low-level modules through interfaces.
-
+	This library promotes the use of abstractions, allowing high-level modules to depend on low-level modules through interfaces.
 
