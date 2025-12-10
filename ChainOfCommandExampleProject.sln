@@ -9,13 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleChainHandlers", "Leg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommandExample", "Legacy\ChainOfCommandExample\ChainOfCommandExample.csproj", "{9B06C7CE-E5FC-4D97-83B3-396449C08AC7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy", "Legacy", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy2009", "Legacy2009", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modern", "Modern", "{24226E25-945A-4B84-A388-D82C85D36BDE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modernized", "Modernized", "{24226E25-945A-4B84-A388-D82C85D36BDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{C7BDEE01-D21C-4E1B-908D-59B8CDA205CA}"
 	ProjectSection(SolutionItems) = preProject
 		Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip = Legacy\LegacyCodeProjectArticle\CodeProjectOriginalArticle.zip
+		Readme.Modernization.Overview.txt = Readme.Modernization.Overview.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfCommandCore", "Modern\ChainOfCommandCore\ChainOfCommandCore.csproj", "{268F3479-D14D-086F-32AF-E089D4BCF885}"
