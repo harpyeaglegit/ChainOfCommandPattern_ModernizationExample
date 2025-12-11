@@ -9,7 +9,14 @@ that utilize the interfaces and types defined in the ChainOfCommandCore library.
 These implementations offer various strategies for managing and executing chains of handlers to process requests or commands.
 ************************************************
 
+************************************************
+Asynchronous and Synchronous Support:
+************************************************
+All IChainManager and IChainHandler implementations in this library support asynchronous
+
+************************************************
 SOLID Principles Applied:
+************************************************
 (1) Single Responsibility Principle: 
 	Each ChainManager implementation is responsible for a specific strategy of managing the chain of handlers.
 	For example, the StopOnFirstErrorChainManager<T> is solely responsible for stopping the chain execution upon encountering the first error.
