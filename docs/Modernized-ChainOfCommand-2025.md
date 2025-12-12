@@ -1,4 +1,4 @@
-﻿# Chain of Responsibility: From Legacy 2009 CodeProject Article to Modern 2025 Architecture
+﻿# Using the Chain Of Command Design Pattern Concepts to Perform Validation and Processing of Complex Data: Revisiting Legacy 2009 CodeProject Article Modernization to 2025 Architecture
 
 A complete modernization and reinterpretation of a Chain of Responsibility example originally published on CodeProject in 2009.  
 This updated 2025 edition preserves the educational value of the original article while introducing a fully redesigned architecture using modern C#, SOLID principles, async/await, and a clean multi-project structure.

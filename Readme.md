@@ -1,4 +1,4 @@
-# Chain-of-Responsibility Modernization Project (2025 Edition)
+# Chain-of-Command Modernization Project (2025 Edition)
 
 ![.NET](https://img.shields.io/badge/.NET-9.0-blue)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green)
