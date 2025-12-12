@@ -30,7 +30,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
 
             if (isValidLoginId == false)
             {
-                throw new ChainHandlerException($"(LoginIdValidationHandler) Invalid login identifier: '{requestData.LoginId}'");
+                throw new ChainHandlerException($"(LoginIdValidationHandler) Invalid login identifier: '{requestData.LoginId}'. Login is not found in data store.");
             }
                         
             return HandlerResult.Success;

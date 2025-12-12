@@ -188,7 +188,7 @@
             label13.Name = "label13";
             label13.Size = new Size(390, 23);
             label13.TabIndex = 26;
-            label13.Text = "Example: User Id '1001', has password 'password0'";
+            label13.Text = "Example: User Id '1002', has password 'password2'";
             // 
             // label17
             // 
@@ -236,7 +236,7 @@
             label2.Location = new Point(17, 297);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(357, 72);
+            label2.Size = new Size(439, 106);
             label2.TabIndex = 17;
             label2.Text = "Attempt to validate a login combinations of valid data (listed below), and invalid data. Invalid values will be recognized by the handlers in the login validation chain.";
             // 
@@ -288,12 +288,12 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(429, 725);
+            label7.Location = new Point(390, 723);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(191, 29);
+            label7.Size = new Size(265, 29);
             label7.TabIndex = 12;
-            label7.Text = "Validation Errors";
+            label7.Text = "Chain Validation  Errors";
             // 
             // panelAccountTransaction
             // 
@@ -329,7 +329,7 @@
             label24.Name = "label24";
             label24.Size = new Size(345, 23);
             label24.TabIndex = 30;
-            label24.Text = "Example: User Id '1001' owns account '9990'";
+            label24.Text = "Example: User Id '1001' owns account '9991'";
             // 
             // label23
             // 
@@ -424,7 +424,7 @@
             label11.Location = new Point(23, 297);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(357, 127);
+            label11.Size = new Size(466, 127);
             label11.TabIndex = 19;
             label11.Text = resources.GetString("label11.Text");
             // 

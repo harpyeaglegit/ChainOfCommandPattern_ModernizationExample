@@ -35,7 +35,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
 
             if (requestData.LoginId <= 0)
             {
-                throw new ChainHandlerException($"{GetType().Name} Invalid login identifier. Number must not less than or equal to zero.");
+                throw new ChainHandlerException($"({GetType().Name}) Invalid login identifier. Number must not less than or equal to zero.");
             }
             return HandlerResult.Success ;
         }

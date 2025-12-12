@@ -13,18 +13,16 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
         /// <summary>
         /// Creates the login authorization chain manager.<br/>
         ///  Requirements for login authorization process:<br/>
-        ///      (1) The login authorization process should STOP when the first error is encountered,<br/>
-        ///          and not keep processsing the rest of the requirements.<br/>
+        ///      (1) The login authorization process should give all handlers a chance to process the login data.<br/>        
         ///      (2) An integer login id must not be less than or equal to zero.<br/>
         ///      (3) The integer login id must be found in the data store.<br/>
         ///      (4) The password string must match that found in the data store for the login id.<br/>
-        /// 
         /// </summary>
         /// <returns>Chain manager to process login authorization request.</returns>
         public static IChainManager<LoginData> CreateLoginAuthorizationChainManager()
         {
-            // Requirement 1: Implemented selecting a StopOnFirstErrorChainManager.
-            IChainManager<LoginData> result = new StopOnFirstErrorChainManager<LoginData>();
+            // Requirement 1: Implemented selecting a InvokeAllHandlersChainManager.
+            IChainManager<LoginData> result = new InvokeAllHandlersChainManager<LoginData>();
 
             // Requirement 2: Implemented by adding LoginIdZeroOrNegativeValidationHandler
             result.AppendHandler(new LoginIdZeroOrNegativeValidationHandler());
@@ -44,8 +42,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
         /// Chain purpose: validate all data fields of a transaction request (account number, amount, and transaction type),
         ///   the process an deposit or withdrawal.<br/>
         /// Requirements for transaction validation:<br/>
-        ///   (1) The transaction validation process should validate all data fields of a transaction.<br/>
-        ///       (Every handler should have an opportunity to process transaction data).<br/>
+        ///   (1) The transaction process should STOP on the first handler that reports a data error.<br/>
         ///   (2) A transaction 'account number' must be found in the data store<br/>
         ///   (3) A transaction 'type' must be either a 'D' character for deposit, or a 'W' character for withdrawal.<br/>
         ///   (4) A transaction 'amount' must be a positive value.<br/>
@@ -55,7 +52,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
         {
             IChainManager<AccountTransactionData> resultChain;
 
-            // Requirement (1) is satisfied by using InvokeAllHandlersChainManager which allows all handlers to process the request data.
+            // Requirement (1) is satisfied by using StopOnFirstErrorChainManager which stops on first handler reporting error.
             resultChain = new StopOnFirstErrorChainManager<AccountTransactionData>();
 
             // Requirement (2) is satisfied by adding TransactionAccountNumberValidationHandler
