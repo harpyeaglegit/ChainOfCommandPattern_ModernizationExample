@@ -150,7 +150,6 @@
             // 
             // numUdLoginId
             // 
-            numUdLoginId.Increment = new decimal(new int[] { 5, 0, 0, 0 });
             numUdLoginId.Location = new Point(141, 56);
             numUdLoginId.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             numUdLoginId.Minimum = new decimal(new int[] { 1410065408, 2, 0, int.MinValue });
@@ -343,7 +342,6 @@
             // 
             // numUpDownAccountNumber
             // 
-            numUpDownAccountNumber.Increment = new decimal(new int[] { 5, 0, 0, 0 });
             numUpDownAccountNumber.Location = new Point(189, 56);
             numUpDownAccountNumber.Maximum = new decimal(new int[] { 1316134912, 2328, 0, 0 });
             numUpDownAccountNumber.Name = "numUpDownAccountNumber";
@@ -354,7 +352,6 @@
             // numUpDownAmount
             // 
             numUpDownAmount.DecimalPlaces = 2;
-            numUpDownAmount.Increment = new decimal(new int[] { 5, 0, 0, 0 });
             numUpDownAmount.Location = new Point(189, 94);
             numUpDownAmount.Maximum = new decimal(new int[] { 1316134912, 2328, 0, 0 });
             numUpDownAmount.Minimum = new decimal(new int[] { 276447232, 23283, 0, int.MinValue });

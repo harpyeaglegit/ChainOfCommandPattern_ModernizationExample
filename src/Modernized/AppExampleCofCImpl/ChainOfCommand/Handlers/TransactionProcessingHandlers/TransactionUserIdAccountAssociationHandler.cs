@@ -13,6 +13,13 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandle
     /// </summary>
     public class TransactionUserIdAccountAssociationHandler : IChainHandler<AccountTransactionData>
     {
+        private readonly DataAccess _dataAccess;
+
+        public TransactionUserIdAccountAssociationHandler(DataAccess dataAccess)
+        {
+            _dataAccess = dataAccess;
+        }   
+
         /// <summary>
         /// Method to process a deposit or withdrawal transaction.
         /// </summary>
@@ -27,7 +34,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandle
                 throw new ChainHandlerException($"({GetType().Name})Invalid transaction amount: {requestData.Amount}. Amount must be greater than zero.");
             }
 
-            if( (await DataAccess.Instance.ValidateUserAccountAssocAsync(requestData.OwnerId, requestData.AccountNumber)) == false)
+            if( (await _dataAccess.ValidateUserAccountAssocAsync(requestData.OwnerId, requestData.AccountNumber)) == false)
             {
                 throw new ChainHandlerException($"({GetType().Name})User ID {requestData.OwnerId} is not associated with account number {requestData.AccountNumber}.");
             }

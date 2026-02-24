@@ -13,6 +13,13 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandle
     /// </summary>
     public class TransactionAccountNumberValidationHandler : IChainHandler<AccountTransactionData>
     {
+        private readonly DataAccess _dataAccess;
+
+        public TransactionAccountNumberValidationHandler(DataAccess dataAccess)
+        {
+            _dataAccess = dataAccess;
+        }
+
         /// <summary>
         /// Handler method to determine of an account number contained in the data parameter is a valid number.
         /// </summary>
@@ -25,7 +32,8 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandle
         /// </exception>
         public async Task<HandlerResult> ProcessAsync(AccountTransactionData rqstData)
         {
-            bool isValidAccount = await DataAccess.Instance.ValidateAccountAsync(rqstData.AccountNumber);
+            bool isValidAccount = await _dataAccess.ValidateAccountAsync(rqstData.AccountNumber);
+            
             if (isValidAccount == false)
             {
                 throw new ChainHandlerException($"({GetType().Name}) Invalid Account Number: '{rqstData.AccountNumber}'");

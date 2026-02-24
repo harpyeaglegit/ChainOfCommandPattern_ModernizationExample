@@ -13,6 +13,12 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
     /// </summary>
     public class LoginPasswordValidationHandler  : IChainHandler<LoginData>
     {
+        private readonly DataAccess _dataAccess;
+        public LoginPasswordValidationHandler(DataAccess dataAccess)
+        {
+            _dataAccess = dataAccess;
+        }
+
         /// <summary>
         /// Validate password is correct for given login identifier in the requestData.
         /// </summary>
@@ -25,7 +31,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
         /// </exception>
         public async Task<HandlerResult> ProcessAsync(LoginData requestData)
         {
-            bool isValidPassword = await DataAccess.Instance.ValidatePasswordAsync(requestData.LoginId, requestData.Password);
+            bool isValidPassword = await _dataAccess.ValidatePasswordAsync(requestData.LoginId, requestData.Password);
             if (isValidPassword == false)
             {
                 throw new ChainHandlerException($"({GetType().Name}) Invalid login identifier / password combination.");

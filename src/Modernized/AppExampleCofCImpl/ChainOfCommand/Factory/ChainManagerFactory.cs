@@ -1,6 +1,8 @@
 ﻿using AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers;
 using AppExampleCofCImpl.ChainOfCommand.Handlers.TransactionProcessingHandlers;
 using AppExampleCofCImpl.DataManagement.ApplicationData.UserAccounts;
+using AppExampleCofCImpl.DataManagement.DataStoreAccess;
+using AppExampleCofCImpl.DataManagement.Interfaces;
 using ChainOfCommand.Managers;
 using ChainOfCommandCore.Interfaces;
 using ChainOfCommandManagerImpl;
@@ -21,6 +23,10 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
         /// <returns>Chain manager to process login authorization request.</returns>
         public static IChainManager<LoginData> CreateLoginAuthorizationChainManager()
         {
+            IDataStore dataStore = new InMemoryDataStore();
+            var dataAccess = new DataAccess(dataStore);
+
+
             // Requirement 1: Implemented selecting a InvokeAllHandlersChainManager.
             IChainManager<LoginData> result = new InvokeAllHandlersChainManager<LoginData>();
 
@@ -28,10 +34,10 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
             result.AppendHandler(new LoginIdZeroOrNegativeValidationHandler());
 
             // Requirement 3: Implemented by adding LoginIdValidationHandler
-            result.AppendHandler(new LoginIdValidationHandler());
+            result.AppendHandler(new LoginIdValidationHandler(dataAccess));
 
             // Requirement 4: Implemented by adding LoginPasswordValidationHandler
-            result.AppendHandler(new LoginPasswordValidationHandler());
+            result.AppendHandler(new LoginPasswordValidationHandler(dataAccess));
 
             return result;
         }
@@ -52,11 +58,17 @@ namespace AppExampleCofCImpl.ChainOfCommand.Factory
         {
             IChainManager<AccountTransactionData> resultChain;
 
+            // For simplicity, we use the same in-memory data store as used for login validation.
+            // In a real application, we would likely have a different data store instance for account data.
+            IDataStore dataStore = new InMemoryDataStore();
+
+            var dataAccess = new DataAccess(dataStore);
+
             // Requirement (1) is satisfied by using StopOnFirstErrorChainManager which stops on first handler reporting error.
             resultChain = new StopOnFirstErrorChainManager<AccountTransactionData>();
 
             // Requirement (2) is satisfied by adding TransactionAccountNumberValidationHandler
-            resultChain.AppendHandler(new TransactionAccountNumberValidationHandler());
+            resultChain.AppendHandler(new TransactionAccountNumberValidationHandler(dataAccess));
 
             // Requirement (3) is satisfied by adding TransactionTypeValidationHandler
             resultChain.AppendHandler(new TransactionTypeValidationHandler());

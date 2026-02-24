@@ -12,6 +12,16 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
     /// </summary>
     public class LoginIdValidationHandler : IChainHandler<LoginData>
     {
+
+        private readonly DataAccess _dataAccess;
+
+        /// <summary>Initializes a new instance of the <see cref="LoginIdValidationHandler" /> class.</summary>
+        /// <param name="dataAccess">Instance providing data access services</param>
+        public LoginIdValidationHandler(DataAccess dataAccess)
+        {
+            _dataAccess = dataAccess;
+        }
+
         /// <summary>
         /// Make sure the customer number in the contained the requestData parameter,
         /// Return true if success, otherwise throw ChainHandlerException.
@@ -26,7 +36,7 @@ namespace AppExampleCofCImpl.ChainOfCommand.Handlers.LoginValidationHandlers
         public async Task<HandlerResult> ProcessAsync(LoginData requestData)
         {
             // Access data store to validate login identifier.
-            bool isValidLoginId = await DataAccess.Instance.ValidateLoginAsync(requestData.LoginId);
+            bool isValidLoginId = await _dataAccess.ValidateLoginAsync(requestData.LoginId);
 
             if (isValidLoginId == false)
             {

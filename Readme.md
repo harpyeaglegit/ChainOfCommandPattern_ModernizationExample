@@ -20,7 +20,6 @@
 ![Chain of Responsibility](https://img.shields.io/badge/Pattern-Chain_of_Responsibility-blue)
 ![Factory Pattern](https://img.shields.io/badge/Pattern-Factory-green)
 ![Repository Pattern](https://img.shields.io/badge/Pattern-Repository-lightgrey)
-![Singleton Pattern](https://img.shields.io/badge/Pattern-Singleton-9cf)
 ![Strategy Pattern](https://img.shields.io/badge/Pattern-Strategy-yellow)
 
 ### **UI / Client**
@@ -40,7 +39,6 @@ This repository is a complete modernization of a Chain-of-Command (Responsibilit
 - Modern Chain-of-Command Design Pattern (clean, scalable implementation)
 - Repository Design Pattern (Data access abstraction)
 - Factory Design Pattern
-- Singleton Design Pattern
 - Multi-project architecture with clear separation of concerns
 - Strategy-based chain manager implementations
 - async/await-first handler design
@@ -142,7 +140,6 @@ Contains demonstration application business logic and data access:
 ### Data Access
 - `IDataStore` (repository abstraction)  
 - `InMemoryDataStore` (sample data store implementation)  
-- `DataAccess` (Singleton for data access)  
 
 ### Chain Construction
 - `ChainManagerFactory` builds all application-specific chains.

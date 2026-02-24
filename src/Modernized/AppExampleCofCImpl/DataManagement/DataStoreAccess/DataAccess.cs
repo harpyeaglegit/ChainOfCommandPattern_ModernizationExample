@@ -3,29 +3,24 @@
 namespace AppExampleCofCImpl.DataManagement.DataStoreAccess
 {
     /// <summary>
-    /// Sealed class that implements the Singleton pattern to provide application wide
-    /// access to data store operations via an underlying data provider (implementing IDataStore interface).
+    /// Sealed class that provides access to data store operations via an underlying 
+    /// data provider (implementing IDataStore interface).
     /// </summary>
     public sealed class DataAccess
     {
-        // Lazy loading of singleton instance
-        private static readonly Lazy<DataAccess> _instance = new(() => new DataAccess());
-
-        // Singleton instance property
-        public static DataAccess Instance => _instance.Value;
-
         // Underlying data provider
+        // This could be a local in-memory data store, ADO.NET access class,
+        // or a remote database accessed via an API.
+        // The IDataStore interface allows for flexibility in the choice of data provider.
         private IDataStore _store;
 
-        /// <summary>
-        /// Constructor for DataAccess() singleton class.
-        /// Initializes local store as default data provider.
-        /// Prevents a default instance of the <see cref="DataAccess"/> class from being created.
+        /// <summary>        
+        /// Constructor for DataAccess class.        
         /// </summary>
-        private DataAccess()
+        /// <param name="dataStore">The data access (IDataStore) instance to use for data operations.</param>
+        public DataAccess(IDataStore dataStore)
         {
-            _store = new InMemoryDataStore();
-            // later: _store = new AwsDataStore();
+            _store = dataStore;
         }
 
         // ----------------------- Delegated async calls -----------------------

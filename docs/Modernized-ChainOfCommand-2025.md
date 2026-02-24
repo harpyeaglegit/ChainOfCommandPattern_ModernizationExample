@@ -26,7 +26,7 @@ This updated 2025 edition preserves the educational value of the original articl
 - [Login Validation Chain (Modernized Example)](#login-validation-chain-modernized-example)
 - [Transaction Processing Chain](#transaction-processing-chain)
 - [Chain Construction via Factory Pattern](#chain-construction-via-factory-pattern)
-- [Data Access Layer: Repository + Singleton](#data-access-layer-repository--singleton)
+- [Data Access Layer: Repository](#data-access-layer-repository)
 - [Modern Benefits: Why the Pattern Still Matters in 2025](#modern-benefits-why-the-pattern-still-matters-in-2025)
 - [Comparison: 2009 vs 2025](#comparison-2009-vs-2025)
 - [Demonstration Application (WinForms UI)](#demonstration-application-winforms-ui)
@@ -280,7 +280,7 @@ Using factories:
 - Prevents inconsistent ordering
 - Centralizes rules
 
-# Data Access Layer: Repository + Singleton
+# Data Access Layer: Repository
 
 The updated example uses:
 
@@ -288,7 +288,7 @@ The updated example uses:
 
 - InMemoryDataStore — sample data source
 
-- DataAccess — singleton wrapper
+- DataAccess — application access to data (business logic) interacts with IDataStore, not the implementation.
 
 This keeps domain logic independent of storage details.
 
